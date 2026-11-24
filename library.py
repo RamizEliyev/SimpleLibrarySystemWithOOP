@@ -41,3 +41,33 @@ class Library:
     # def searchStudent(self, studentID):
     # def borrowBook(self, studentID, bookID):
     # def returnBook(self, studentID, bookID):
+
+    def searchBooks(self,bookID):
+
+        if not self.books:
+            print("No books found.")
+            return
+
+        for book in self.books:
+            if book.bookID == bookID:
+                print("Book found")
+                return
+
+        print("No book found with this ID.")
+
+    def searchStudent(self,studentID):
+
+        if not self.student:
+            print("There are no student")
+            return
+
+        for student in self.students:
+            if student.studentID == studentID:
+             print("Student found")
+             return
+        print("No book found with this ID.")
+
+    def borrowBook(self,studentID,bookID):
+
+        if not self.books:
+            print("No students found,")
