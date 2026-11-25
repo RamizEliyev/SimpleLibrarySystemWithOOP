@@ -65,9 +65,33 @@ class Library:
             if student.studentID == studentID:
              print("Student found")
              return
-        print("No book found with this ID.")
+        print("No student found with this ID.")
 
     def borrowBook(self,studentID,bookID):
+        for student in self.students:
+            if student.studentID == studentID:
+                for book in self.books:
+                    if book.bookID == bookID:
+                         book.isBorrowed = True
+                         print("Book borrowed")
+                         return
+                print("No book found with this ID.")
+                return
+        print("No student found with this ID.")
 
-        if not self.books:
-            print("No students found,")
+    def returnBook(self,studentID,bookID):
+        for student in self.students:
+            if student.studentID == studentID:
+                for book in self.books:
+                    if book.bookID == bookID:
+                        if not book.isBorrowed:
+                            print("Book was not borrowed")
+                            return
+                        book.isBorrowed = False
+                        print("Book returned")
+                        return
+                print("No book found with this ID.")
+                return
+        print("No student found with this ID.")
+
+                
