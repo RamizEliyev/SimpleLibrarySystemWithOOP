@@ -72,8 +72,7 @@ class Library:
             if student.studentID == studentID:
                 for book in self.books:
                     if book.bookID == bookID:
-                         book.isBorrowed = True
-                         print("Book borrowed")
+                         student.borrowBook(book)
                          return
                 print("No book found with this ID.")
                 return
@@ -84,11 +83,7 @@ class Library:
             if student.studentID == studentID:
                 for book in self.books:
                     if book.bookID == bookID:
-                        if not book.isBorrowed:
-                            print("Book was not borrowed")
-                            return
-                        book.isBorrowed = False
-                        print("Book returned")
+                        student.returnBook(book)
                         return
                 print("No book found with this ID.")
                 return
